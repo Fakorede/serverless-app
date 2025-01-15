@@ -1,0 +1,22 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: thefabdev
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: sls-cicd
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: sls-cicd
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  stage: dev
+  region: us-east-2
+  memorySize: 128
+  timeout: 5
+
+functions:
+  hello:
+    handler: handler.logger
+    events:
+      - http:
+        path: message
+        method: GET
