@@ -12,6 +12,6 @@ phases:
     commands:
       - echo deployment with serverless framework started at `date`
       - sls deploy --stage $ENV_NAME --region us-east-2
-  post-build:
+  post_build:
     commands:
       - echo deployyment completed at `date`!
