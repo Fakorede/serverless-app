@@ -18,5 +18,6 @@ functions:
     handler: handler.logger
     events:
       - http:
-        path: message
-        method: GET
+          path: message
+          method: GET
+

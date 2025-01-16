@@ -1,6 +1,8 @@
 version: 0.2
 phases: 
   install:
+    # runtime-versions:
+    #   nodejs: 18 # or your preferred version
     commands:
       - echo installing serverless...
       - npm install -g serverless
@@ -8,10 +10,16 @@ phases:
     commands:
       - echo installing source npm dependencies...
       - npm install
+      - echo "Configuring AWS credentials..."
+      - export AWS_DEFAULT_REGION=us-east-2
   build:
     commands:
-      - echo deployment with serverless framework started at `date`
-      - sls deploy --stage $ENV_NAME --region us-east-2
+      - echo deployment with serverless framework started
+      - sls deploy --stage $ENV_NAME #--region us-east-2
   post_build:
     commands:
-      - echo deployyment completed at `date`!
+      - echo deployment completed!
+
+  artifacts:
+    files:
+      - '**/*'
