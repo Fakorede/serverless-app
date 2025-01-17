@@ -5,7 +5,7 @@ exports.logger = async (event) => {
     statusCode: 200,
     body: JSON.stringify({
       message: "Serverless CI/CD demo!",
-      version: "v2.0",
+      version: "v3.0",
       timestamp: moment().unix()
     })
   };
